@@ -38,7 +38,16 @@ td {
   padding-bottom: 5rem;
 }
 
-.table {
+.search-bar {
+  background: transparent;
+  border: transparent;
+}
+
+.search-bar:focus {
+  outline: none;
+}
+
+.members-table {
   display: flex;
   justify-content: center;
 }
