@@ -32,6 +32,12 @@ td {
   background-color: #96d4d4;
 }
 
+.adding-table {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5rem;
+}
+
 .table {
   display: flex;
   justify-content: center;
