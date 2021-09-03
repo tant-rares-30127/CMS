@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background-color: #51c4d3;
 }
 
 .wrapper {
@@ -34,6 +35,14 @@ td {
 .table {
   display: flex;
   justify-content: center;
+}
+
+.top-row {
+  height: 2rem;
+}
+
+.bottom-row {
+  text-align: center;
 }
 
 .last-name {
