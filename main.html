@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="main.css" />
+    <script type="text/javascript" src="main.js"></script>
   </head>
 
   <body>
@@ -23,27 +24,29 @@
           <tbody>
             <tr class="bottom-row">
               <td class="last-name">
-                <input type="search" class="search-bar" />
+                <input type="search" class="search-bar" id="lastNameInput" />
               </td>
               <td class="first-name">
-                <input type="search" class="search-bar" />
+                <input type="search" class="search-bar" id="firstNameInput" />
               </td>
               <td class="email">
-                <input type="search" class="search-bar" />
+                <input type="search" class="search-bar" id="emailInput" />
               </td>
               <td class="sex">
-                <input type="search" class="search-bar" />
+                <input type="search" class="search-bar" id="sexInput" />
               </td>
               <td class="birthdate">
-                <input type="search" class="search-bar" />
+                <input type="search" class="search-bar" id="birthdateInput" />
               </td>
             </tr>
           </tbody>
         </table>
-        <button class="add-button">Add</button>
+        <button class="add-button" id="addButton" onclick="AddMember()">
+          Add
+        </button>
       </div>
       <div class="members-table">
-        <table>
+        <table id="table">
           <thead class="top-row">
             <tr>
               <th class="last-name">Nume</th>
