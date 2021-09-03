@@ -1,3 +1,11 @@
+:root {
+  --last-name-width: 20%;
+  --first-name-width: 35%;
+  --email-width: 20%;
+  --sex-width: 5%;
+  --birthdate-width: 20%;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -41,10 +49,20 @@ td {
 .search-bar {
   background: transparent;
   border: transparent;
+  width: 100%;
+  text-align: center;
 }
 
 .search-bar:focus {
   outline: none;
+}
+
+.add-button {
+  background-color: white;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  height: 50%;
+  width: 4rem;
 }
 
 .members-table {
@@ -61,21 +79,21 @@ td {
 }
 
 .last-name {
-  width: 20%;
+  width: var(--last-name-width);
 }
 
 .first-name {
-  width: 35%;
+  width: var(--first-name-width);
 }
 
 .email {
-  width: 20%;
+  width: var(--email-width);
 }
 
 .sex {
-  width: 5%;
+  width: var(--sex-width);
 }
 
 .birthdate {
-  width: 20%;
+  width: var(--birthdate-width);
 }
