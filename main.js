@@ -6,6 +6,7 @@ function AddMember() {
     var birthdate=document.getElementById('birthdateInput').value;
     var boolean=0;
     const regex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
     if (lastName==""){
         alert("Last name is empty");
         boolean=1;
@@ -26,6 +27,14 @@ function AddMember() {
         alert("Choose a birthdate");
         boolean=1;
     }
+
+    if (regex.test(String(email).toLowerCase())){
+    }
+    else{
+        alert("Insert a valid email");
+        boolean=1;
+    }
+
     if (boolean==0){
         var table=document.getElementById('table');
         var row=table.insertRow();

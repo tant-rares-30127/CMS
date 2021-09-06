@@ -19,7 +19,7 @@ Veti construi un CMS (content management system) pentru angajati. Mai pe inteles
 - [x] Toate fieldurile sunt obligatorii (in afara de poza), daca userul nu completeaza unul din ele, primeste eroare
 - [x] Angajatii pot fi stersi din tabel cu un buton X in partea dreapta
 
-- [ ] BONUS: validare pe email cu regex
+- [x] BONUS: validare pe email cu regex
 - [ ] BONUS: data nasterii va fi afisata in formatul urmator: 23.04.2021 va fi afisat ca “23 Aprilie 2021” (puteti face de mana, sau cu moment.js)
 - [ ] BONUS: poza angajatului va fi afisata in stanga numelui, intr-o componenta rotunda (ca poza de profil de la instagram/facebook/teams)
 - [ ] BONUS: angajatii pot sa fie sortati alfabetic, dupa nume
