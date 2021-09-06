@@ -5,12 +5,12 @@ Content Management System for employees
 Veti construi un CMS (content management system) pentru angajati. Mai pe intelesul tuturor, un tabel cu angajati.
 
 - [x] Informatiile care se cer despre angajati:
-      Nume [x]
-      Prenume [x]
-      Email [x]
-      Sex [x]
-      Data nasterii [x]
-      BONUS: poza [ ]
+      Nume
+      Prenume
+      Email
+      Sex
+      Data nasterii
+      BONUS: poza
       Userul trebuie sa poata face input la toate datele astea intr-o pagina web. Informatiile vor fi afisate intr-un tabel, in aceeasi pagina.
 
 - [x] Pentru Sex, userul va putea alege dintr-un dropdown
