@@ -3,7 +3,8 @@
   --first-name-width: 35%;
   --email-width: 20%;
   --sex-width: 5%;
-  --birthdate-width: 20%;
+  --birthdate-width: 15%;
+  --delete-width: 5%;
 }
 
 * {
@@ -98,8 +99,12 @@ td {
   width: var(--birthdate-width);
 }
 
+.delete-cell {
+  width: var(--delete-width);
+}
+
 .delete-button {
   background-color: white;
-  height: 1rem;
-  width: 2rem;
+  height: 1.5rem;
+  width: 3rem;
 }
