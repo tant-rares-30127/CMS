@@ -35,6 +35,32 @@ function AddMember() {
         boolean=1;
     }
 
+    var dtToday = new Date();
+    var year = dtToday.getFullYear();
+    var month = dtToday.getMonth();
+    var day = dtToday.getDate();
+    var selectedData=document.getElementById("birthdateInput").value;
+    var selectedDate=new Date(selectedData);
+    var selectedYear=selectedDate.getFullYear();
+    var selectedMonth=selectedDate.getMonth();
+    var selectedDay=selectedDate.getDate();
+    if (year-selectedYear<16){
+        boolean=1;
+        alert("You have to be at least 16 years old");
+    }
+    else{
+        if (selectedMonth>month){
+            boolean=1;
+            alert("You have to be at least 16 years old"); 
+        }
+        else{
+            if (selectedDay>day){
+                boolean=1;
+                alert("You have to be at least 16 years old");
+            }
+        }
+    }
+
     if (boolean==0){
         var table=document.getElementById('table');
         var row=table.insertRow();
