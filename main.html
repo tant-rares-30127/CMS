@@ -24,60 +24,50 @@
       <div id="myModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
-          <span class="close">&times;</span>
-          <div class="adding-table">
-            <table>
-              <thead class="top-row">
-                <tr>
-                  <th class="last-name">Nume</th>
-                  <th class="first-name">Prenume</th>
-                  <th class="email">Email</th>
-                  <th class="sex">Sex</th>
-                  <th class="birthdate">Data nasterii</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="bottom-row">
-                  <td class="last-name">
-                    <input
-                      type="search"
-                      class="search-bar"
-                      id="lastNameInput"
-                    />
-                  </td>
-                  <td class="first-name">
-                    <input
-                      type="search"
-                      class="search-bar"
-                      id="firstNameInput"
-                    />
-                  </td>
-                  <td class="email">
-                    <input type="search" class="search-bar" id="emailInput" />
-                  </td>
-                  <td class="sex">
-                    <select class="sex-dropdown" id="sexInput">
-                      <option value="" selected hidden>Choose sex</option>
-                      <option value="Male">Male</option>
-                      <option value="Female">Female</option>
-                      <option value="Other">Seara tarziu</option>
-                    </select>
-                  </td>
-                  <td class="birthdate">
-                    <input
-                      type="date"
-                      name="birthdate"
-                      placeholder="Select birthdate"
-                      class="birth-picker"
-                      id="birthdateInput"
-                    />
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <button class="add-button" id="addButton" onclick="AddMember()">
-              Add
-            </button>
+          <div class="close-button">
+            <span class="close">&times;</span>
+          </div>
+
+          <div class="last-name-first-name">
+            <div class="add-first-name">
+              <label>First name:</label>
+              <input type="search" class="search-bar" id="firstNameInput" />
+            </div>
+            <div class="add-last-name">
+              <label>Last name:</label>
+              <input type="search" class="search-bar" id="lastNameInput" />
+            </div>
+          </div>  
+
+          <div class="email-sex">
+            <div class="add-email">
+              <label>Email:</label>
+              <input type="search" class="search-bar" id="emailInput" />
+            </div>
+            <div class="add-sex">
+              <label>Sex:</label>
+              <select class="sex-dropdown" id="sexInput">
+                <option value="" selected hidden>Choose sex</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Seara tarziu</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="add-birthdate">
+              <input
+                  type="date"
+                  name="birthdate"
+                  placeholder="Select birthdate"
+                  class="birth-picker"
+                  id="birthdateInput"
+                />
+          </div>
+
+          <button class="add-button" id="addButton" onclick="AddMember()">
+            Add
+          </button>
           </div>
         </div>
       </div>

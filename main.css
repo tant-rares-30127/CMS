@@ -52,18 +52,43 @@ td {
   height: 3rem;
   font-size: 1.5rem;
   font-family: Garamond;
+  background-color: #96d4d4;
 }
 
-.adding-table {
+.close-button {
   display: flex;
-  justify-content: center;
-  padding-bottom: 5rem;
+  justify-content: end;
+}
+
+.last-name-first-name {
+  display: flex;
+  justify-content: space-around;
+}
+
+.add-first-name {
+  display: flex;
+}
+
+.add-last-name {
+  display: flex;
+}
+
+.email-sex {
+  display: flex;
+  justify-content: space-around;
+}
+
+.add-email {
+  display: flex;
+}
+
+.add-sex {
+  display: flex;
 }
 
 .search-bar {
-  background: transparent;
-  border: transparent;
-  width: 100%;
+  background: white;
+  border: black;
   text-align: center;
 }
 
@@ -71,16 +96,9 @@ td {
   outline: none;
 }
 
-.sex.dropdown {
-  width: 100%;
-}
-
 .birth-picker {
   background: transparent;
   border: transparent;
-  width: 100%;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 }
 
 .add-button {
@@ -150,11 +168,15 @@ td {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #96d4d4;
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 50%; /* Could be more or less, depending on screen size */
+  height: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
 /* The Close Button */
