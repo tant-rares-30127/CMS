@@ -17,6 +17,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
+  min-width: 450px;
 }
 
 .title {
@@ -126,7 +127,7 @@ td {
   align-items: center;
 }
 
-.add-birthdate::before {
+.add-birthdate:before {
   border-radius: 30px;
 }
 
@@ -233,4 +234,28 @@ td {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+@media (max-width: 1250px) {
+  .add-first-name {
+    flex-direction: column;
+  }
+  .add-last-name {
+    flex-direction: column;
+  }
+  .add-email {
+    flex-direction: column;
+  }
+  .add-sex {
+    flex-direction: column;
+  }
+  .add-birthdate {
+    flex-direction: column;
+  }
+  .label {
+    width: auto;
+  }
+  .modal-content {
+    width: 50%;
+  }
 }
