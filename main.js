@@ -40,24 +40,34 @@ function AddMember() {
     var month = dtToday.getMonth();
     var day = dtToday.getDate();
     var selectedData=document.getElementById("birthdateInput").value;
+    console.log(selectedData);
     var selectedDate=new Date(selectedData);
     var selectedYear=selectedDate.getFullYear();
     var selectedMonth=selectedDate.getMonth();
     var selectedDay=selectedDate.getDate();
-    if (year-selectedYear<16){
-        boolean=1;
-        alert("You have to be at least 16 years old");
+
+    if (year-selectedYear>16){
     }
     else{
-        if (selectedMonth>month){
-            boolean=1;
-            alert("You have to be at least 16 years old"); 
+        if (year-selectedYear==16){
+            if (selectedMonth<month){
+            }
+            else{
+                    if (selectedMonth==month){
+                        if (selectedDay>day){
+                            boolean=1;
+                            alert("You have to be at least 16 years old");
+                        }
+                    }
+                    else{
+                        boolean=1;
+                        alert("You have to be at least 16 years old");
+                    }
+                }
         }
         else{
-            if (selectedDay>day){
-                boolean=1;
-                alert("You have to be at least 16 years old");
-            }
+            boolean=1;
+            alert("You have to be at least 16 years old");
         }
     }
 
