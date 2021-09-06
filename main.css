@@ -97,3 +97,9 @@ td {
 .birthdate {
   width: var(--birthdate-width);
 }
+
+.delete-button {
+  background-color: white;
+  height: 1rem;
+  width: 2rem;
+}
