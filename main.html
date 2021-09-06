@@ -30,22 +30,22 @@
 
           <div class="last-name-first-name">
             <div class="add-first-name">
-              <label>First name:</label>
+              <labe class="add-first-name">First name: </label>
               <input type="search" class="search-bar" id="firstNameInput" />
             </div>
             <div class="add-last-name">
-              <label>Last name:</label>
+              <label class="add-last-name">Last name: </label>
               <input type="search" class="search-bar" id="lastNameInput" />
             </div>
           </div>  
 
           <div class="email-sex">
             <div class="add-email">
-              <label>Email:</label>
+              <label class="add-email">Email: </label>
               <input type="search" class="search-bar" id="emailInput" />
             </div>
             <div class="add-sex">
-              <label>Sex:</label>
+              <label class="add-sex">Sex: </label>
               <select class="sex-dropdown" id="sexInput">
                 <option value="" selected hidden>Choose sex</option>
                 <option value="Male">Male</option>
@@ -56,18 +56,22 @@
           </div>
 
           <div class="add-birthdate">
+            <label class="add-birthdate">Birthdate: </label>
               <input
-                  type="date"
-                  name="birthdate"
-                  placeholder="Select birthdate"
-                  class="birth-picker"
-                  id="birthdateInput"
-                />
+                type="date"
+                name="birthdate"
+                placeholder="Select birthdate"
+                class="birth-picker"
+                id="birthdateInput"
+              />
           </div>
-
-          <button class="add-button" id="addButton" onclick="AddMember()">
-            Add
-          </button>
+          
+          <div class="add-button-div">
+            <button class="add-button" id="addButton" onclick="AddMember()">
+              Add
+            </button>
+          </div>
+          
           </div>
         </div>
       </div>

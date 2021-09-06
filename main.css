@@ -53,43 +53,70 @@ td {
   font-size: 1.5rem;
   font-family: Garamond;
   background-color: #96d4d4;
+  border-radius: 30px;
 }
 
 .close-button {
   display: flex;
   justify-content: end;
+  background-color: #96d4d4;
 }
 
 .last-name-first-name {
   display: flex;
   justify-content: space-around;
+  background-color: #96d4d4;
 }
 
 .add-first-name {
   display: flex;
+  background-color: #96d4d4;
 }
 
 .add-last-name {
   display: flex;
+  background-color: #96d4d4;
 }
 
 .email-sex {
   display: flex;
   justify-content: space-around;
+  background-color: #96d4d4;
 }
 
 .add-email {
   display: flex;
+  background-color: #96d4d4;
 }
 
 .add-sex {
   display: flex;
+  background-color: #96d4d4;
+}
+
+.sex-dropdown {
+  display: flex;
+  background-color: #96d4d4;
+  border-radius: 30px;
+}
+
+.add-birthdate {
+  display: flex;
+  background-color: #96d4d4;
+  border-radius: 30px;
+}
+
+.add-birthdate::before {
+  border-radius: 30px;
 }
 
 .search-bar {
   background: white;
   border: black;
   text-align: center;
+  border-radius: 30px;
+  margin-left: 0.5rem;
+  width: 100%;
 }
 
 .search-bar:focus {
@@ -98,14 +125,18 @@ td {
 
 .birth-picker {
   background: transparent;
-  border: transparent;
+}
+
+.add-button-div {
+  display: flex;
+  justify-content: center;
+  background-color: #96d4d4;
 }
 
 .add-button {
   background-color: white;
   margin-left: 1rem;
   margin-top: 1rem;
-  height: 50%;
   width: 4rem;
 }
 
@@ -185,6 +216,7 @@ td {
   float: right;
   font-size: 28px;
   font-weight: bold;
+  background-color: #96d4d4;
 }
 
 .close:hover,
