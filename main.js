@@ -24,6 +24,7 @@ function AddMember() {
     }
     if (birthdate==""){
         alert("Choose a birthdate");
+        boolean=1;
     }
     if (boolean==0){
         var table=document.getElementById('table');
