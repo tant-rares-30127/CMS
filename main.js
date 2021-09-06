@@ -18,9 +18,11 @@ function AddMember() {
     cell3.innerHTML=email;
     cell4.innerHTML=sex;
     cell5.innerHTML=birthdate; 
-    cell6.innerHTML='<button class="delete-button" id="deleteButton" onclick="DeleteMember()">Delete</button>'
+    cell6.innerHTML='<button class="delete-button" id="deleteButton" onclick="DeleteMember(this)">Delete</button>'
 }
 
-function DeleteMember(){
-
+function DeleteMember(row){
+    var table=document.getElementById('table');
+    var id=row.parentNode.parentNode.rowIndex;
+    table.deleteRow(id);
 }
