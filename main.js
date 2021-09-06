@@ -7,6 +7,7 @@ function AddMember() {
     console.log(`${lastName} ${firstName} ${email} ${sex} ${birthdate}`);
     var table=document.getElementById('table');
     var row=table.insertRow();
+    row.className="bottom-row";
     var cell1=row.insertCell(0);
     var cell2=row.insertCell(1);
     var cell3=row.insertCell(2);

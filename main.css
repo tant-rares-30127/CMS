@@ -58,6 +58,10 @@ td {
   outline: none;
 }
 
+.sex.dropdown {
+  width: 100%;
+}
+
 .add-button {
   background-color: white;
   margin-left: 1rem;
