@@ -116,7 +116,7 @@ td {
 }
 
 .delete-button {
-  background-color: white;
+  background-color: transparent;
   height: 1.5rem;
   width: 3rem;
 }

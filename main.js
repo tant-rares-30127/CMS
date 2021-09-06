@@ -19,7 +19,7 @@ function AddMember() {
     cell3.innerHTML=email;
     cell4.innerHTML=sex;
     cell5.innerHTML=birthdate; 
-    cell6.innerHTML='<button class="delete-button" id="deleteButton" onclick="DeleteMember(this)">Delete</button>'
+    cell6.innerHTML='<span class="delete-button fa fa-remove" id="deleteButton" onclick="DeleteMember(this)">'
 }
 
 function DeleteMember(row){
