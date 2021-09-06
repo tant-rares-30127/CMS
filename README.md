@@ -15,7 +15,7 @@ Veti construi un CMS (content management system) pentru angajati. Mai pe inteles
 
 - [x] Pentru Sex, userul va putea alege dintr-un dropdown
 - [x] Pentru data nasterii, userul va putea alege dintr-un date picker
-- [ ] BONUS userul nu poate sa aiba mai putin de 16 ani
+- [x] BONUS userul nu poate sa aiba mai putin de 16 ani
 - [x] Toate fieldurile sunt obligatorii (in afara de poza), daca userul nu completeaza unul din ele, primeste eroare
 - [x] Angajatii pot fi stersi din tabel cu un buton X in partea dreapta
 
