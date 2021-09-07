@@ -28,4 +28,4 @@ Veti construi un CMS (content management system) pentru angajati. Mai pe inteles
 - [ ] BONUS: search bar pentru cautarea angajatilor - rezultatele vor fi afisate in tabel (practic filtrare dupa string)
 - [ ] BONUS: persistenta cu JSON local sau local storage
 - [ ] BONUS: make it look good
-- [ ] BONUS: input de date cu un modal
+- [x] BONUS: input de date cu un modal
