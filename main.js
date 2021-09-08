@@ -1,3 +1,4 @@
+
 function AddMember() {
     var lastName=document.getElementById('lastNameInput').value;
     var firstName=document.getElementById('firstNameInput').value;
