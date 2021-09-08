@@ -1,5 +1,5 @@
-import { initializeApp } from '/node_modules/firebase/app';
-import { getFirestore, collection, getDocs } from '/node_modules/firebase/firestore/lite';
+import {initializeApp} from "https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js";
+import {getFirestore, doc, setDoc, getDoc, getDocs, collection} from "https://www.gstatic.com/firebasejs/9.0.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDxqcFls44cCSrDK60cbr6aBZh6ioImRtY",
@@ -13,4 +13,18 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const firebaseApp = initializeApp(firebaseConfig);
-const db=getFirestore(app);
+const db=getFirestore(firebaseApp);
+const querySnapshot = await getDocs(collection(db, "members"));
+
+function WriteMember(){
+  var i=0;
+  querySnapshot.forEach(element => {
+    console.log(element.data()["first-name"]);
+    console.log(element.data()["last-name"]);
+    console.log(element.data()["email"]);
+    console.log(element.data()["sex"]);
+    console.log(element.data()["birthdate"].toDate());
+  });
+}
+
+WriteMember();
