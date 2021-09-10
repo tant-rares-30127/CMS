@@ -17,6 +17,24 @@ const db=getFirestore(firebaseApp);
 const querySnapshot = await getDocs(collection(db, "members"));
 const membersRef = collection(db, "members");
 
+//Changing the format of date
+function RefactorDate(day, month, year){
+    var namedMonth;
+    if (month==1) namedMonth=" January ";
+    if (month==2) namedMonth=" February ";
+    if (month==3) namedMonth=" March ";
+    if (month==4) namedMonth=" April ";
+    if (month==5) namedMonth=" May ";
+    if (month==6) namedMonth=" June ";
+    if (month==7) namedMonth=" July ";
+    if (month==8) namedMonth=" August ";
+    if (month==9) namedMonth=" September ";
+    if (month==10) namedMonth=" October ";
+    if (month==11) namedMonth=" November ";
+    if (month==12) namedMonth=" December ";
+    return day + namedMonth + year
+}
+
 // Adding members from firestore to table
 function  ReadMembersFromDatabase(){
   querySnapshot.forEach(element => {
@@ -28,7 +46,6 @@ function  ReadMembersFromDatabase(){
     var year=date.getFullYear();
     var month=date.getMonth() + 1;
     var day=date.getDate();
-    var birthdate=year + "/" + month + "/" + day;
     var table=document.getElementById('table');
     var row=table.insertRow();
     row.className="bottom-row";
@@ -42,7 +59,7 @@ function  ReadMembersFromDatabase(){
     cell2.innerHTML=firstName;
     cell3.innerHTML=email;
     cell4.innerHTML=sex;
-    cell5.innerHTML=birthdate; 
+    cell5.innerHTML=RefactorDate(day, month, year);
     cell6.innerHTML='<span class="delete-button fa fa-remove" id="deleteButton">';
     var drop=document.getElementsByClassName("delete-button");;
     drop[row.rowIndex-1].addEventListener("click", async function(){
@@ -75,7 +92,6 @@ function AddMemberInDatabase(lastName, firstName, Email, Sex, Birthdate){
 document.getElementById("addButton").addEventListener("click", async function(){
   AddMember();
 });
-
 
 //In the table
 function AddMember() {
@@ -174,7 +190,7 @@ function AddMember() {
         cell2.innerHTML=firstName;
         cell3.innerHTML=email;
         cell4.innerHTML=sex;
-        cell5.innerHTML=birthdate; 
+        cell5.innerHTML=RefactorDate(selectedDay, selectedMonth+1, selectedYear);
         cell6.innerHTML='<span class="delete-button fa fa-remove" id="deleteButton">'
         var drop=document.getElementsByClassName("delete-button");;
         drop[row.rowIndex-1].addEventListener("click", async function(){
