@@ -9,7 +9,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <script type="text/javascript" src="main.js"></script>
     <script type="module" src="index.js"></script>
   </head>
 
@@ -20,7 +19,7 @@
       </div>
 
       <div class="modal-button">
-        <button class="open-modal-button" id="myBtn" onclick="OpenModal()">
+        <button class="open-modal-button" id="myBtn">
           Add new member
         </button>
       </div>
@@ -69,7 +68,7 @@
           </div>
           
           <div class="add-button-div">
-            <button class="add-button" id="addButton" onclick="AddMember()">
+            <button class="add-button" id="addButton">
               Add
             </button>
           </div>
@@ -90,23 +89,6 @@
               <th class="delete-cell"></th>
             </tr>
           </thead>
-          <tbody>
-            <tr class="bottom-row">
-              <td class="last-name">Tant</td>
-              <td class="first-name">Rares</td>
-              <td class="email">tantrares@yahoo.com</td>
-              <td class="sex">Male</td>
-              <td class="birthdate">2000-12-08</td>
-              <td class="delete-cell">
-                <span
-                  class="delete-button fa fa-remove"
-                  id="deleteButton"
-                  onclick="DeleteMember(this)"
-                >
-                </span>
-              </td>
-            </tr>
-          </tbody>
         </table>
       </div>
     </div>
