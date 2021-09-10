@@ -17,6 +17,7 @@ const db=getFirestore(firebaseApp);
 const querySnapshot = await getDocs(collection(db, "members"));
 const membersRef = collection(db, "members");
 
+// Adding members from firestore to table
 function  ReadMembersFromDatabase(){
   querySnapshot.forEach(element => {
     var lastName=element.data()["lastname"];
@@ -50,9 +51,13 @@ function  ReadMembersFromDatabase(){
         });
   });
 }
-
 ReadMembersFromDatabase();
+// ------------>
 
+
+//Adding members to the database and table
+
+//In the database
 function AddMemberInDatabase(lastName, firstName, Email, Sex, Birthdate){
   var currentid=document.getElementById('table').rows.length-1;
   console.log(currentid);
@@ -66,10 +71,13 @@ function AddMemberInDatabase(lastName, firstName, Email, Sex, Birthdate){
   });
 }
 
+//Event listener
 document.getElementById("addButton").addEventListener("click", async function(){
   AddMember();
 });
 
+
+//In the table
 function AddMember() {
     var lastName=document.getElementById('lastNameInput').value;
     var firstName=document.getElementById('firstNameInput').value;
@@ -161,22 +169,32 @@ function AddMember() {
         AddMemberInDatabase(lastName, firstName, email, sex, selectedDate);
     }
 }
+//--------------->
 
+
+//Deleting members from the database and table
+//From the database
 function DeleteMemberFromDatabase(currentid){
   deleteDoc(doc(db, "members", `${currentid}`));
 }
 
+//From the table
 function DeleteMember(row, currentid){
     var table=document.getElementById('table');
     var id=row.rowIndex;
     table.deleteRow(id);
     DeleteMemberFromDatabase(currentid);
 }
+//------------------>
 
+
+//Modal interaction
+//Open modal eventlistener
 document.getElementById("myBtn").addEventListener("click", async function(){
   OpenModal();
 });
 
+//Open modal function
 function OpenModal(){
     var modal = document.getElementById("myModal");
     var btn = document.getElementById("myBtn");
@@ -191,3 +209,4 @@ function OpenModal(){
         }
     }
 }
+//-------------->
