@@ -1,5 +1,5 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js";
-import {getFirestore, doc, setDoc, getDoc, getDocs, collection, Timestamp} from "https://www.gstatic.com/firebasejs/9.0.1/firebase-firestore.js";
+import {getFirestore, doc, setDoc, getDoc, getDocs, collection, Timestamp, deleteDoc} from "https://www.gstatic.com/firebasejs/9.0.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDxqcFls44cCSrDK60cbr6aBZh6ioImRtY",
@@ -42,7 +42,12 @@ function  ReadMembersFromDatabase(){
     cell3.innerHTML=email;
     cell4.innerHTML=sex;
     cell5.innerHTML=birthdate; 
-    cell6.innerHTML='<span class="delete-button fa fa-remove" id="deleteButton" onclick="DeleteMember(this)">'
+    cell6.innerHTML='<span class="delete-button fa fa-remove" id="deleteButton">';
+    var drop=document.getElementsByClassName("delete-button");;
+    drop[row.rowIndex-1].addEventListener("click", async function(){
+          var currentid=document.getElementById('table').rows.length-1;
+          DeleteMember(row, currentid);
+        });
   });
 }
 
@@ -51,7 +56,7 @@ ReadMembersFromDatabase();
 function AddMemberInDatabase(lastName, firstName, Email, Sex, Birthdate){
   var currentid=document.getElementById('table').rows.length-1;
   console.log(currentid);
-  setDoc(doc(membersRef),{
+  setDoc(doc(membersRef, `${currentid}`),{
     firstname: lastName,
     lastname: firstName,
     email: Email,
@@ -147,15 +152,25 @@ function AddMember() {
         cell3.innerHTML=email;
         cell4.innerHTML=sex;
         cell5.innerHTML=birthdate; 
-        cell6.innerHTML='<span class="delete-button fa fa-remove" id="deleteButton" onclick="DeleteMember(this)">'
+        cell6.innerHTML='<span class="delete-button fa fa-remove" id="deleteButton">'
+        var drop=document.getElementsByClassName("delete-button");;
+        drop[row.rowIndex-1].addEventListener("click", async function(){
+          var currentid=document.getElementById('table').rows.length-1;
+          DeleteMember(row, currentid);
+        });
         AddMemberInDatabase(lastName, firstName, email, sex, selectedDate);
     }
 }
 
-function DeleteMember(row){
+function DeleteMemberFromDatabase(currentid){
+  deleteDoc(doc(db, "members", `${currentid}`));
+}
+
+function DeleteMember(row, currentid){
     var table=document.getElementById('table');
-    var id=row.parentNode.parentNode.rowIndex;
+    var id=row.rowIndex;
     table.deleteRow(id);
+    DeleteMemberFromDatabase(currentid);
 }
 
 document.getElementById("myBtn").addEventListener("click", async function(){
