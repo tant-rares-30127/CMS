@@ -1,5 +1,5 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js";
-import {getFirestore, doc, setDoc, getDoc, getDocs, collection, Timestamp, deleteDoc} from "https://www.gstatic.com/firebasejs/9.0.1/firebase-firestore.js";
+import {getFirestore, doc, setDoc, getDoc, getDocs, collection, Timestamp, deleteDoc, query} from "https://www.gstatic.com/firebasejs/9.0.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDxqcFls44cCSrDK60cbr6aBZh6ioImRtY",
@@ -218,6 +218,14 @@ function DeleteMember(row, currentid){
 }
 //------------------>
 
+//Search bar
+document.getElementById("searchIcon").addEventListener("click", async function(){
+    SearchMember();
+});
+
+function SearchMember(){
+    
+}
 
 //Modal interaction
 //Open modal eventlistener

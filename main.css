@@ -150,6 +150,35 @@ td {
   width: 4rem;
 }
 
+.member-search-bar-div {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2rem;
+}
+
+.input-border {
+  border: 2px solid;
+  border-radius: 30px;
+  border-color: black;
+}
+
+.member-search-bar {
+  width: 25rem;
+  height: 2rem;
+  border: transparent;
+  padding: 1rem;
+  background-color: transparent;
+}
+
+.member-search-bar:focus {
+  outline: none;
+}
+
+.search-icon {
+  background: transparent;
+  margin-right: 0.5rem;
+}
+
 .members-table {
   display: flex;
   justify-content: center;
