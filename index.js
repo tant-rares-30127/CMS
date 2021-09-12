@@ -36,11 +36,7 @@ function RefactorDate(day, month, year){
     return day + namedMonth + year
 }
 
-// Adding members from firestore to table
-function  ReadMembersFromDatabase(querySnapshot){
-  querySnapshot.forEach(element => {
-    var lastName=element.data()["lastname"];
-    var firstName=element.data()["firstname"];
+function InsertElementInTable(element, firstName, lastName){
     var email=element.data()["email"];
     var sex=element.data()["sex"];
     var date=element.data()["birthdate"].toDate();
@@ -68,9 +64,19 @@ function  ReadMembersFromDatabase(querySnapshot){
           DeleteMember(row, currentid);
         });
     lastMemberId=element.data()["id"];
+}
+
+// Adding members from firestore to table
+function  ReadMembersFromDatabase(){
+    var name = document.getElementById("searchBar").value;
+    querySnapshot.forEach(element => {
+        var lastName=element.data()["lastname"];
+        var firstName=element.data()["firstname"];
+        if (name==null) InsertElementInTable(element);
+        else if (firstName.includes(name) || lastName.includes(name)) InsertElementInTable(element, lastName, firstName);
   });
 }
-ReadMembersFromDatabase(querySnapshot);
+ReadMembersFromDatabase();
 // ------------>
 
 
@@ -225,18 +231,14 @@ function DeleteMember(row, currentid){
 function CleanTable(){
     var table=document.getElementById("table");
     for (var i=table.rows.length-1; i>0; i-- ){
-        console.log(i);
         table.deleteRow(i);
     }
 }
 
 //Search bar
 document.getElementById("searchIcon").addEventListener("click", async function(){
-    var name = document.getElementById("searchBar").value;
-    var q = query(collection(db, "members"), where("firstname", "==", name));
-    var querySnapshot1 = await getDocs(q);
     CleanTable();
-    ReadMembersFromDatabase(querySnapshot1);
+    ReadMembersFromDatabase();
 });
 
 //Modal interaction
