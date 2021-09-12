@@ -25,7 +25,7 @@ Veti construi un CMS (content management system) pentru angajati. Mai pe inteles
 - [ ] BONUS: angajatii pot sa fie sortati alfabetic, dupa nume
 - [ ] BONUS: angajatii pot sa fie sortati dupa data nasterii
 - [ ] BONUS: angajatii pot sa fie filtrati dupa sex / data nasterii / daca au poza sau nu
-- [ ] BONUS: search bar pentru cautarea angajatilor - rezultatele vor fi afisate in tabel (practic filtrare dupa string)
+- [x] BONUS: search bar pentru cautarea angajatilor - rezultatele vor fi afisate in tabel (practic filtrare dupa string)
 - [ ] BONUS: persistenta cu JSON local sau local storage
 - [ ] BONUS: make it look good
 - [x] BONUS: input de date cu un modal

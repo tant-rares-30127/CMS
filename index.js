@@ -16,6 +16,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 const db=getFirestore(firebaseApp);
 const querySnapshot = await getDocs(collection(db, "members"));
 const membersRef = collection(db, "members");
+var lastMemberId;
 
 //Changing the format of date
 function RefactorDate(day, month, year){
@@ -61,11 +62,12 @@ function  ReadMembersFromDatabase(querySnapshot){
     cell4.innerHTML=sex;
     cell5.innerHTML=RefactorDate(day, month, year);
     cell6.innerHTML='<span class="delete-button fa fa-remove" id="deleteButton">';
-    var drop=document.getElementsByClassName("delete-button");;
+    var drop=document.getElementsByClassName("delete-button");
+    var currentid=element.data()["id"];
     drop[row.rowIndex-1].addEventListener("click", async function(){
-          var currentid=document.getElementById('table').rows.length-1;
           DeleteMember(row, currentid);
         });
+    lastMemberId=element.data()["id"];
   });
 }
 ReadMembersFromDatabase(querySnapshot);
@@ -76,8 +78,8 @@ ReadMembersFromDatabase(querySnapshot);
 
 //In the database
 function AddMemberInDatabase(lastName, firstName, Email, Sex, Birthdate){
-  var currentid=document.getElementById('table').rows.length-1;
-  console.log(currentid);
+  lastMemberId++;
+  var currentid=lastMemberId;
   setDoc(doc(membersRef, `${currentid}`),{
     firstname: firstName,
     lastname: lastName,
@@ -192,9 +194,9 @@ function AddMember() {
         cell4.innerHTML=sex;
         cell5.innerHTML=RefactorDate(selectedDay, selectedMonth+1, selectedYear);
         cell6.innerHTML='<span class="delete-button fa fa-remove" id="deleteButton">'
-        var drop=document.getElementsByClassName("delete-button");;
+        var drop=document.getElementsByClassName("delete-button");
+        var currentid=document.getElementById('table').rows.length-1;
         drop[row.rowIndex-1].addEventListener("click", async function(){
-          var currentid=document.getElementById('table').rows.length-1;
           DeleteMember(row, currentid);
         });
         AddMemberInDatabase(lastName, firstName, email, sex, selectedDate);
@@ -214,6 +216,7 @@ function DeleteMember(row, currentid){
     var table=document.getElementById('table');
     var id=row.rowIndex;
     table.deleteRow(id);
+    console.log(currentid);
     DeleteMemberFromDatabase(currentid);
 }
 //------------------>
