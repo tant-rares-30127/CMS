@@ -44,7 +44,8 @@ td {
 
 .add-search {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 37rem;
   padding-top: 2rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
@@ -174,6 +175,7 @@ td {
   background-color: transparent;
   margin-left: 0.5rem;
   margin-top: 0.2rem;
+  font-size: medium;
 }
 
 .member-search-bar:focus {
@@ -184,6 +186,12 @@ td {
   background: transparent;
   margin-top: 0.8rem;
   margin-right: 0.5rem;
+}
+
+.search-add-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .members-table {
@@ -254,6 +262,7 @@ td {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
+  border-radius: 10%;
 }
 
 /* The Close Button */
