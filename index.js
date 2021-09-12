@@ -36,6 +36,14 @@ function RefactorDate(day, month, year){
     return day + namedMonth + year
 }
 
+function ClearModalFields(){
+    document.getElementById('lastNameInput').value=null;
+    document.getElementById('firstNameInput').value=null;
+    document.getElementById('emailInput').value=null;
+    document.getElementById('sexInput').value=null;
+    document.getElementById('birthdateInput').value=null;
+}
+
 function InsertElementInTable(element, firstName, lastName){
     var email=element.data()["email"];
     var sex=element.data()["sex"];
@@ -98,7 +106,10 @@ function AddMemberInDatabase(lastName, firstName, Email, Sex, Birthdate){
 
 //Event listener
 document.getElementById("addButton").addEventListener("click", async function(){
-  AddMember();
+    AddMember();
+    ClearModalFields();
+    var modal = document.getElementById("myModal");
+    modal.style.display = "none";
 });
 
 //In the table
@@ -255,10 +266,12 @@ function OpenModal(){
     modal.style.display = "block";
     span.onclick = function() {
         modal.style.display = "none";
+        ClearModalFields();
     }
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
+            ClearModalFields();
         }
     }
 }
