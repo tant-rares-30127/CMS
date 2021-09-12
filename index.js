@@ -1,5 +1,5 @@
 import {initializeApp} from "https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js";
-import {getFirestore, doc, setDoc, getDoc, getDocs, collection, Timestamp, deleteDoc, query} from "https://www.gstatic.com/firebasejs/9.0.1/firebase-firestore.js";
+import {getFirestore, doc, setDoc, getDoc, getDocs, collection, Timestamp, deleteDoc, query, where} from "https://www.gstatic.com/firebasejs/9.0.1/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDxqcFls44cCSrDK60cbr6aBZh6ioImRtY",
@@ -36,7 +36,7 @@ function RefactorDate(day, month, year){
 }
 
 // Adding members from firestore to table
-function  ReadMembersFromDatabase(){
+function  ReadMembersFromDatabase(querySnapshot){
   querySnapshot.forEach(element => {
     var lastName=element.data()["lastname"];
     var firstName=element.data()["firstname"];
@@ -55,8 +55,8 @@ function  ReadMembersFromDatabase(){
     var cell4=row.insertCell(3);
     var cell5=row.insertCell(4);
     var cell6=row.insertCell(5);
-    cell1.innerHTML=lastName;
-    cell2.innerHTML=firstName;
+    cell1.innerHTML=firstName;
+    cell2.innerHTML=lastName;
     cell3.innerHTML=email;
     cell4.innerHTML=sex;
     cell5.innerHTML=RefactorDate(day, month, year);
@@ -68,7 +68,7 @@ function  ReadMembersFromDatabase(){
         });
   });
 }
-ReadMembersFromDatabase();
+ReadMembersFromDatabase(querySnapshot);
 // ------------>
 
 
@@ -79,8 +79,8 @@ function AddMemberInDatabase(lastName, firstName, Email, Sex, Birthdate){
   var currentid=document.getElementById('table').rows.length-1;
   console.log(currentid);
   setDoc(doc(membersRef, `${currentid}`),{
-    firstname: lastName,
-    lastname: firstName,
+    firstname: firstName,
+    lastname: lastName,
     email: Email,
     sex: Sex,
     birthdate: Timestamp.fromDate(Birthdate),
@@ -186,8 +186,8 @@ function AddMember() {
         var cell4=row.insertCell(3);
         var cell5=row.insertCell(4);
         var cell6=row.insertCell(5);
-        cell1.innerHTML=lastName;
-        cell2.innerHTML=firstName;
+        cell1.innerHTML=firstName;
+        cell2.innerHTML=lastName;
         cell3.innerHTML=email;
         cell4.innerHTML=sex;
         cell5.innerHTML=RefactorDate(selectedDay, selectedMonth+1, selectedYear);
@@ -218,14 +218,23 @@ function DeleteMember(row, currentid){
 }
 //------------------>
 
+//Remove data from the table
+function CleanTable(){
+    var table=document.getElementById("table");
+    for (var i=table.rows.length-1; i>0; i-- ){
+        console.log(i);
+        table.deleteRow(i);
+    }
+}
+
 //Search bar
 document.getElementById("searchIcon").addEventListener("click", async function(){
-    SearchMember();
+    var name = document.getElementById("searchBar").value;
+    var q = query(collection(db, "members"), where("firstname", "==", name));
+    var querySnapshot1 = await getDocs(q);
+    CleanTable();
+    ReadMembersFromDatabase(querySnapshot1);
 });
-
-function SearchMember(){
-    
-}
 
 //Modal interaction
 //Open modal eventlistener
