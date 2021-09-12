@@ -42,10 +42,18 @@ td {
   background-color: #96d4d4;
 }
 
+.add-search {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 2rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 0.1rem;
+}
+
 .modal-button {
   display: flex;
   justify-content: center;
-  margin-bottom: 2rem;
 }
 
 .open-modal-button {
@@ -150,24 +158,22 @@ td {
   width: 4rem;
 }
 
-.member-search-bar-div {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 2rem;
-}
-
 .input-border {
+  display: flex;
   border: 2px solid;
   border-radius: 30px;
   border-color: black;
+  width: 20rem;
+  height: 3rem;
 }
 
 .member-search-bar {
   width: 25rem;
-  height: 2rem;
+  height: 80%;
   border: transparent;
-  padding: 1rem;
   background-color: transparent;
+  margin-left: 0.5rem;
+  margin-top: 0.2rem;
 }
 
 .member-search-bar:focus {
@@ -176,6 +182,7 @@ td {
 
 .search-icon {
   background: transparent;
+  margin-top: 0.8rem;
   margin-right: 0.5rem;
 }
 
