@@ -16,7 +16,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 const db=getFirestore(firebaseApp);
 const querySnapshot = await getDocs(collection(db, "members"));
 const membersRef = collection(db, "members");
-var lastMemberId;
+var lastMemberId=0;
 
 //Changing the format of date
 function RefactorDate(day, month, year){
@@ -71,7 +71,7 @@ function InsertElementInTable(element, firstName, lastName){
     drop[row.rowIndex-1].addEventListener("click", async function(){
           DeleteMember(row, currentid);
         });
-    lastMemberId=element.data()["id"];
+    if (currentid>lastMemberId) lastMemberId=currentid;
 }
 
 // Adding members from firestore to table
@@ -91,10 +91,10 @@ ReadMembersFromDatabase();
 //Adding members to the database and table
 
 //In the database
-function AddMemberInDatabase(lastName, firstName, Email, Sex, Birthdate){
+async function AddMemberInDatabase(lastName, firstName, Email, Sex, Birthdate){
   lastMemberId++;
   var currentid=lastMemberId;
-  setDoc(doc(membersRef, `${currentid}`),{
+  await setDoc(doc(membersRef, `${currentid}`),{
     firstname: firstName,
     lastname: lastName,
     email: Email,
@@ -212,9 +212,11 @@ function AddMember() {
         cell5.innerHTML=RefactorDate(selectedDay, selectedMonth+1, selectedYear);
         cell6.innerHTML='<span class="delete-button fa fa-remove" id="deleteButton">'
         var drop=document.getElementsByClassName("delete-button");
-        var currentid=document.getElementById('table').rows.length-1;
+        var currentid=lastMemberId+1;
+        console.log(currentid);
         drop[row.rowIndex-1].addEventListener("click", async function(){
-          DeleteMember(row, currentid);
+            console.log(currentid);
+            DeleteMember(row, currentid);
         });
         AddMemberInDatabase(lastName, firstName, email, sex, selectedDate);
     }
@@ -233,7 +235,6 @@ function DeleteMember(row, currentid){
     var table=document.getElementById('table');
     var id=row.rowIndex;
     table.deleteRow(id);
-    console.log(currentid);
     DeleteMemberFromDatabase(currentid);
 }
 //------------------>
